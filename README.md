@@ -1,0 +1,1 @@
+Basic blog site written in Django
