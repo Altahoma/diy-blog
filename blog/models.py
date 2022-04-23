@@ -42,7 +42,7 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.description[:75]
+        return f'{self.description[:75]}...'
 
     class Meta:
         ordering = ['pub_date']
