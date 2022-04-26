@@ -13,7 +13,7 @@ class Author(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse('author-detail', args=[str(self.id)])
+        return reverse('blogger-detail', args=[str(self.id)])
 
     class Meta:
         ordering = ['-reg_date']
@@ -29,7 +29,7 @@ class Blog(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog', args=[str(self.id)])
+        return reverse('blog-detail', args=[str(self.id)])
 
     class Meta:
         ordering = ['-pub_date']

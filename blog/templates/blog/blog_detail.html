@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>{{ blog.title }}</h1>
+
+    <p><strong>Post date:</strong> {{ blog.pub_date.date }}</p>
+    <p><strong>Author:</strong> <a href="{{ blog.author.get_absolute_url }}">{{ blog.author }}</a></p> <!-- author detail link not yet defined -->
+    <p><strong>Description:</strong></p>
+    <p>{{ blog.description }}</p>
+
+    <ul>
+    <h4>Comments</h4>
+    <hr>
+    {% if blog.comment_set.all %}
+        {% for comment in blog.comment_set.all  %}
+            <p>{{ comment.author }} ({{ comment.pub_date }})</p>
+            <p>{{ comment.description }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No comments yet :(</p>
+    {% endif %}
+    <p><a href="">Add a new comment</a> </p>
+    </ul>
+{% endblock %}
